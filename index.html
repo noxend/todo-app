@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="main-cont">
+      <div class="top-cont">
+        <div>
+          <div class="left">
+            <h2 class="title"><i class="fas fa-tasks"></i> TODO PROJECT</h2>
+          </div>
+          <div class="right">
+            <span><b id="count-items"></b> Tasks</span>
+          </div>
+        </div>
+      </div>
+      <div class="body-cont">
+        <ul class="todos-list" id="todos-list">
+          <li class="todos-item complate">
+                <label class="my-checkbox">
+                  <input type="checkbox" name="check">
+                  <span></span>
+                </label>
+            <span class="task">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, magnam.
+            </span>
+            <div class="btn-group">
+              <button class="menu">
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button class="edit blue-button">Edit</button>
+              <button class="remove red-button">Romove</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom-cont">
+        <form action="" id="form-add">
+          <input type="text" placeholder="What needs to be done?" id="input">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+
+</html>
