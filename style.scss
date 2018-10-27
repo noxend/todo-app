@@ -65,6 +65,7 @@ div.main {
   .bottom-cont {
     display: flex;
     background-color: #e9ebee;
+    border-top: 1px solid #dfdfdf;
 
     form {
       padding: 15px;
@@ -78,14 +79,16 @@ div.main {
 .complate  {
   background-color: rgba(0, 0, 0, 0.05);
   .task {
+    transition: .250ms;
     text-decoration: line-through;
-    color: rgb(170, 170, 170);
+    opacity: 0.25;
   }
 }
 
 .todos-item {
   position: relative;
-  padding: 25px 15px;
+  padding: 0 15px;
+  height: 80px;
   display: flex;
   width: 100%;
   align-items: center;
@@ -93,10 +96,10 @@ div.main {
   overflow: hidden;
   animation-name: someNameAnim;
   animation-duration: 0.2s;
-  transition: 200ms;
+  transition: 200ms border-left;
 
   &:not(:last-child) {
-    border-bottom: 1px solid rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(233, 233, 233);
   }
 
   &:hover .btn-group{
@@ -107,26 +110,45 @@ div.main {
     margin-right: 5px;
   }
 
+  .text-edit {
+    display: none;
+    border: 1px solid #dfdfdf;
+    width: 60%;
+    flex-grow: 0;
+  }
 
   .btn-group {
     // border: 1px solid #dfdfdf;
     // background-color: #e9ebee;
-    transform: translateX(145px);
+    transform: translateX(155px);
     border-radius: 3px;
     display: flex;
     position: absolute;
     right: 0;
     padding: 5px;
     opacity: 0;
+    animation: menuout 250ms ease-in-out;
     transition: 200ms;
 
     .menu {
+      margin-right: 15px;
+      transform: rotateZ(0);
       display: flex;
+      position: relative;
       justify-content: center;
       align-items: center;
       color: rgb(100, 100, 100);
       border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
       background-color: transparent;
+      animation: arrowAnimOut 250ms ease-in;
+    }
+
+    .menu-opened {
+      animation: arrowAnim 250ms ease-in;
+      transform: rotateZ(180deg);
     }
 
     .menu:hover {
@@ -143,17 +165,17 @@ div.main {
   }
 
   .opened {
-    animation: menu 300ms ease-in;
+    animation: menu 250ms ease-in;
     transform: translateX(0);
   }
 
   .closed {
-    animation: menuout 300ms ease-in;
+    animation: menuout 250ms ease-in;
     transform: translateX(145px);
   }
 
   &:hover {
-    border-left: 5px solid #00695C;
+    border-left: 5px solid #8BC34A;
   }
 
   &:hover .btn-group {
@@ -162,6 +184,16 @@ div.main {
 
   span {
     width: 100%;
+  }
+}
+
+.editing {
+  .task {
+    display: none;
+  }
+
+  .text-edit {
+    display: block;
   }
 }
 
@@ -174,9 +206,10 @@ input {
   margin-right: 15px;
   transition: 0.2s;
   border-radius: 3px;
+  border: 1px solid #dfdfdf;
 
   &:focus {
-    box-shadow: 0px 0px 0.15px 3px rgba(12, 182, 26, 0.4);
+    box-shadow: 0px 0px 0.15px 3px rgba(0, 0, 0, 0.2)
   }
 
   &::placeholder {
@@ -288,7 +321,7 @@ button {
   }
 
   input[type="checkbox"]:checked + span {
-    background-color: rgb(116, 221, 84);
+    background-color: #8BC34A;
     border: none;
   }
 
@@ -317,7 +350,19 @@ button {
   to {transform: translateX(0);}
 }
 
+@keyframes arrowAnim{
+  from {transform: rotateZ(0);}
+  to {transform: rotateZ(180deg);}
+}
+
+@keyframes arrowAnimOut{
+  from {transform: rotateZ(180deg);}
+  to {transform: rotateZ(0);}
+}
+
 @keyframes menuout{
   from {transform: translateX(0);}
   to {transform: translateX(145px);}
 }
+
+
