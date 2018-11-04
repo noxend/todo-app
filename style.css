@@ -6,49 +6,47 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif; }
 
-div.main {
+.main-cont {
+  display: flex;
+  width: 1140px;
+  max-width: 1140px;
+  background-color: rgba(255, 255, 255, 0.95);
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 3px; }
+
+.main {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(https://images.wallpaperscraft.ru/image/gora_vershina_zasnezhennyj_128670_1280x720.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden; }
-  div.main .main-cont {
-    display: flex;
-    top: 15%;
-    width: 1140px;
-    max-width: 1140px;
-    background-color: rgba(255, 255, 255, 0.95);
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 3px;
-    margin: 0 15px; }
-  div.main .body-cont {
-    max-height: 60vh;
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 500% 500%;
+  animation: gradientAnim 15s ease infinite; }
+  .main .body-cont {
+    max-height: 620px;
     overflow-y: auto; }
-  div.main .top-cont {
+  .main .top-cont {
     background-color: #e9ebee;
     border-bottom: 1px solid #dfdfdf; }
-    div.main .top-cont > div {
+    .main .top-cont > div {
       display: flex;
       padding: 15px;
       justify-content: space-between;
       align-items: flex-end; }
-    div.main .top-cont .left h2 {
+    .main .top-cont .left h2 {
       color: #505050; }
-    div.main .top-cont .right span {
+    .main .top-cont .right span {
       color: #777777; }
-  div.main .bottom-cont {
+  .main .bottom-cont {
     display: flex;
     background-color: #e9ebee;
-    border-top: 1px solid #dfdfdf; }
-    div.main .bottom-cont form {
+    border-top: 1px solid #dfdfdf;
+    min-height: 70px; }
+    .main .bottom-cont form {
       padding: 15px;
       display: flex;
       justify-content: center;
@@ -73,7 +71,7 @@ div.main {
   animation-name: someNameAnim;
   animation-duration: 0.2s;
   transition: 200ms border-left; }
-  .todos-item:not(:last-child) {
+  .todos-item {
     border-bottom: 1px solid #e9e9e9; }
   .todos-item:hover .btn-group {
     opacity: 1; }
@@ -142,11 +140,12 @@ input {
   border: none;
   outline: none;
   margin-right: 15px;
-  transition: 0.2s;
+  transition: 0.2s box-shadow;
   border-radius: 3px;
   border: 1px solid #dfdfdf; }
   input:focus {
-    box-shadow: 0px 0px 0.15px 3px rgba(0, 0, 0, 0.2); }
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(150, 233, 102, 0.6);
+    border: 1px solid rgba(150, 233, 102, 0.6); }
   input::placeholder {
     font-style: italic;
     color: #b1b1b1; }
@@ -255,5 +254,24 @@ button {
     transform: translateX(0); }
   to {
     transform: translateX(145px); } }
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 19%; }
+  50% {
+    background-position: 100% 82%; }
+  100% {
+    background-position: 0% 19%; } }
+@media (max-width: 768px) {
+  .main-cont {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0px; }
+
+  .main .body-cont {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    max-height: none; } }
 
 /*# sourceMappingURL=style.css.map */
